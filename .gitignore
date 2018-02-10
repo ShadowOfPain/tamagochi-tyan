@@ -1,7 +1,8 @@
-#Unity
+Library/*
+Library/
 Library
-obj
-temp
+obj/
+Temp/
 *.csproj
 *.sln
 
