@@ -1,14 +1,25 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using NUnit.Framework.Internal;
 using UnityEngine;
 
-[CreateAssetMenu (menuName = "Character")]
-public class Character : ScriptableObject {
+public class Character : MonoBehaviour {
 	
-	[SerializeField]
 	private string _characterName = "Default";
-	[SerializeField] 
-	private Animation _animation;
-	
-	
+	private CharData _charData;
+
+	private CharData CharData
+	{
+		get
+		{
+			if (_charData == null)
+			{
+				_charData = CharData.Load(this._characterName);
+			}
+			return _charData;
+		}
+	}
+
+
 }
